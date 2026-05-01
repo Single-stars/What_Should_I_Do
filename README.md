@@ -66,8 +66,10 @@ npm run dev
 
 - `npm run dev`：启动本地开发服务。
 - `npm run build`：执行生产构建检查。
+- `npm run build:static`：生成可静态托管的 `out` 文件夹。
 - `npm run start`：运行生产构建后的服务。
 - `deploy-to-vercel.cmd`：在 Windows 上一键安装依赖、构建并部署到 Vercel；脚本会优先使用项目内的新版 Node.js，避免系统旧版本 Node 导致构建失败。
+- `build-share-folder.cmd`：构建可上传到静态托管平台的 `out` 文件夹，适合 Vercel 登录不可用时使用。
 
 ## 文件说明
 
@@ -79,6 +81,9 @@ npm run dev
 - `lib/quiz-types.ts`：测验核心 TypeScript 类型。
 - `package.json`：Next.js、React、TypeScript 依赖和运行命令。
 - `deploy-to-vercel.cmd` / `deploy-to-vercel.ps1`：Windows 部署助手，用于生成可分享的 Vercel 公网链接。
+- `build-share-folder.cmd` / `build-share-folder.ps1`：Windows 静态导出助手，用于生成可拖拽上传的 `out` 文件夹。
+- `netlify.toml` 和 `public/_headers`：静态托管与 CDN 缓存规则，提升公开访问时的稳定性。
+- `DEPLOYMENT.md`：部署方式、承载访问量原理和注意事项。
 - `README.md`：当前状态、关键决策、已完成部分、待办事项和修改记录。
 - `PROJECT_BACKGROUND.md`：长期项目背景、总体方针、产品边界和迭代原则。
 
@@ -92,6 +97,8 @@ npm run dev
 - 将题目数据、结果文案、核心类型和结果计算拆成类型化模块。
 - 将原有样式迁移到 `app/globals.css`，保留现有视觉和响应式布局。
 - 将 Next.js 升级到 `16.0.10`，并新增 Windows 部署助手脚本，自动使用项目内新版 Node.js 部署到 Vercel。
+- 配置 Next.js 静态导出，并新增 `build-share-folder.cmd`，便于在 Vercel 登录不可用时通过静态托管平台发布。
+- 新增 Netlify 静态托管配置、缓存响应头和部署说明，明确网站通过 CDN 承载访问量。
 - 创建静态网页 MVP。
 - 实现入口页、答题页、结果页和分享卡片。
 - 实现 10 类行动处方。

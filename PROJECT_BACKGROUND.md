@@ -92,6 +92,8 @@ MVP 成功参考线：
 - 结果计算集中在 `lib/quiz-result.ts`，保持为纯函数，便于后续测试和复用。
 - 样式集中在 `app/globals.css`，延续当前视觉和响应式布局。
 - Windows 部署通过 `deploy-to-vercel.cmd` / `deploy-to-vercel.ps1` 引导完成，脚本使用项目内新版 Node.js，避免系统旧 Node 版本影响构建。
+- 项目启用 Next.js 静态导出，可通过 `build-share-folder.cmd` 生成 `out` 文件夹并上传到静态托管平台。
+- 公开访问应优先放到 CDN 型静态托管平台；当前通过 `netlify.toml` 和 `public/_headers` 配置静态资源长缓存与页面短缓存。
 
 ## 文档维护规则
 
@@ -140,6 +142,8 @@ git commit -m "Update quiz copy and project docs"
 - 明确结果计算作为纯函数维护在 `lib/quiz-result.ts`。
 - 保留“不依赖后端”的当前产品形态。
 - 新增 Windows 部署助手，用于安装依赖、构建并部署到 Vercel 获取公网链接。
+- 新增静态导出助手，用于在 Vercel 登录不可用时生成可上传的 `out` 文件夹。
+- 新增 CDN/静态托管配置和部署说明，目标是让网站在分享传播时由托管平台承接访问量。
 - 明确项目定位为“链接传播型行动测试”。
 - 明确核心传播句式为“是时候去 XXX 了！”。
 - 明确首版采用纯静态网页。
