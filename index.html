@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>是时候去做点什么了</title>
+    <meta
+      name="description"
+      content="一个帮助年轻人从迷茫里找到今天下一步的行动测试。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero-screen" id="start-screen" aria-labelledby="hero-title">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb orb-one"></div>
+          <div class="orb orb-two"></div>
+          <div class="signal-card signal-card-a">
+            <span>下一步</span>
+            <strong>今天能做</strong>
+          </div>
+          <div class="signal-card signal-card-b">
+            <span>3 分钟</span>
+            <strong>走出卡住</strong>
+          </div>
+        </div>
+
+        <div class="hero-content">
+          <p class="eyebrow">行动测试</p>
+          <h1 id="hero-title">是时候去做点什么了</h1>
+          <p class="hero-copy">
+            从你的身份和近期苦恼开始，回答一组选择题，得到一句可以分享的结论和一个今天就能执行的行动。
+          </p>
+          <button class="primary-button" id="start-button" type="button">
+            开始测试
+          </button>
+        </div>
+      </section>
+
+      <section class="quiz-screen hidden" id="quiz-screen" aria-live="polite">
+        <header class="quiz-header">
+          <button class="ghost-button" id="back-button" type="button" aria-label="返回上一题">
+            返回
+          </button>
+          <div class="progress-wrap" aria-label="测试进度">
+            <div class="progress-meta">
+              <span id="step-count">1 / 14</span>
+              <span id="progress-label">选择当前身份</span>
+            </div>
+            <div class="progress-track">
+              <div class="progress-fill" id="progress-fill"></div>
+            </div>
+          </div>
+        </header>
+
+        <article class="question-panel">
+          <p class="question-kicker" id="question-kicker">先定入口</p>
+          <h2 id="question-title">你现在最接近哪种状态？</h2>
+          <div class="options-grid" id="options-grid"></div>
+        </article>
+      </section>
+
+      <section class="result-screen hidden" id="result-screen" aria-live="polite">
+        <div class="result-layout">
+          <article class="result-main">
+            <p class="eyebrow" id="result-type">行动处方</p>
+            <h2 id="result-title">是时候去找一个真实的人聊聊了！</h2>
+            <p class="result-summary" id="result-summary"></p>
+
+            <div class="action-strip">
+              <div>
+                <span>今天</span>
+                <strong id="result-today"></strong>
+              </div>
+              <div>
+                <span>别再</span>
+                <strong id="result-avoid"></strong>
+              </div>
+            </div>
+
+            <div class="detail-block">
+              <h3>你的下一步</h3>
+              <ol id="result-steps"></ol>
+            </div>
+
+            <div class="result-actions">
+              <button class="primary-button" id="share-button" type="button">分享结果</button>
+              <button class="ghost-button" id="restart-button" type="button">重新测试</button>
+            </div>
+          </article>
+
+          <aside class="share-card" id="share-card" aria-label="分享卡片预览">
+            <p id="share-tag">行动处方</p>
+            <h3 id="share-title">是时候去做点什么了！</h3>
+            <span id="share-note">今天先迈出一个小步。</span>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <div class="toast hidden" id="toast" role="status">已复制分享文案</div>
+    <script src="./script.js"></script>
+  </body>
+</html>
